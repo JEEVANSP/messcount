@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +6,7 @@
     font-family: 'poppins', sans-serif;
 }
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0.705), url('./images/back.png'));
+    background: linear-gradient(rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0.705)), url('./images/back.png');
     width: 100%;
     min-height: 100vh;
     background-size: cover;
@@ -30,8 +31,8 @@ nav{
 }
 nav img {
    padding-top: 5px;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 }
 .navbar a{
     position: relative;
@@ -40,6 +41,16 @@ nav img {
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
+
+}
+
+.togglephone{
+    color: white !important;
+    font-size: 1.6rem;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    display: none;
 
 }
 
@@ -60,6 +71,11 @@ nav img {
     transform-origin: left;
     transform: scaleX(1);
 }
+
+.dropdown a:hover:after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
 .navbar .login-but {
     width: 130px;
     height: 50px;
@@ -74,24 +90,7 @@ nav img {
     margin-left: 40px;
     transition: .5s;
 }
-.navbar .reg-but {
-    width: 130px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #fff;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    color: #fff;
-    font-weight: 500;
-    font-size: 1.2rem;
-    margin-left: 40px;
-    transition: .5s;
-}
-.navbar .login-but:hover{
-    background-color: #fff;
-    color:#162938;
-}
+
 .navbar .reg-but:hover{
     background-color: #fff;
     color:#162938;
@@ -113,7 +112,7 @@ nav img {
     color:white;
 }
 .wrapper{
-    position: relative;
+    position: fixed;
     width: 400px;
     height: 440px;
     background: transparent;
@@ -132,12 +131,12 @@ nav img {
     transform: scale(1);
 }
 .wrapper.active{
-    height: 520px;
+    height: 680px;
 }
 .wrapper.abc{
     display: none;
 }
-.wrapper .closeicon{
+.closeicon{
     position: absolute;
     top: 0;
     right: 0;
@@ -151,6 +150,21 @@ nav img {
     justify-content: center ;
     cursor: pointer;
    
+}
+.closeicon2{
+    position: absolute;
+    top: 13px;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: transparent ;
+    font-size: 3em;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    cursor: pointer;
+
 }
 .wrapper.active .form-box.login{
     transition: none;
@@ -206,6 +220,15 @@ nav img {
     font-weight: 500;
     pointer-events: none;
     transition: .5s;
+}
+.input-box1{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid white;
+    padding-top: 5px;
+    align-items: center;
+    margin: 30px 0;
 }
 
 .input-box input:focus~label,
@@ -282,3 +305,174 @@ nav img {
     text-decoration: underline;
     color: blue;
 }
+.dropdown{
+    position:absolute;
+    right: 2rem;
+    top: 60px;
+    width: 200px;
+    height: 0;
+    display: none;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    border-radius: 10px;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ .dropdown.open{
+    height: 200px;
+} 
+.dropdown a.open{
+        display: block;
+       
+}
+.dropdown a{
+    position: relative;
+    font-size: 1.4em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    display: none;
+
+}
+.dropdown .login-but {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-left: 40px;
+    transition: .5s;
+    display: none;
+}
+.dropdown .login-but:hover{
+    background-color: #fff;
+    color:#162938;
+}
+.dropdown a::after{
+    content: '';
+    position: absolute ;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    left: 0;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+
+@media all and (max-width:400px){
+    .content h1{
+        font-size:30px ;
+    }
+    .content p{
+        font-size: 16px;
+    }
+ .content{
+    margin-top: 400px;
+
+
+}
+}
+@media all and (max-width:900px){
+    nav img {
+        padding-top: 5px;
+         height: 90px;
+         width: 90px;
+        
+     }
+     .navbar a{
+        font-size: 1.3em;
+        margin-left: 8px;
+     }
+     .content h1{
+        font-size:40px ;
+    }
+    .content p{
+        font-size: 25px;
+    }
+
+     nav{
+        padding-left: 12px;
+        padding-right: 12px;
+     }
+     /* #home{
+        display:none;
+     } */
+    .navbar .login-but{
+    width: 100px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.rem;
+    margin-left: 10px;
+    transition: .5s;
+    }
+    
+}
+@media all and (max-width:500px){
+    nav{
+        top: 10px;
+        padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100px;
+    }
+    .content h1{
+        font-size:30px ;
+    }
+    .content p{
+        font-size: 23px;
+    } .content{
+    margin-top: 200px;
+} 
+    .navbar,
+    .navbar .login-but{
+    display: none;
+   }
+     .togglephone {
+    display: block  ;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+   }
+   .navbar .login-but{
+    display: block;
+   }
+    
+   nav .logo{
+    width:80px ;
+    height:80px ;
+   }
+   .dropdown{
+    display: block;
+   }
+   
+   
+}
+
+.clickbutton{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    cursor: pointer;
+}
+
+/* .wrapper.abc{
+    transform: scale(0);
+} */
